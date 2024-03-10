@@ -1,4 +1,4 @@
-#include"UltrasonicSensor.h"
+#include "UltrasonicSensor.h"
 UltrasonicSensor::UltrasonicSensor(int triggerPin,int echoPin){
   this->triggerPin=triggerPin;
   this->echoPin=echoPin;
