@@ -13,8 +13,8 @@ void setup()
 void loop()
 {
   int cm=ultrasonicSensor.getTheShortestDistance(SAMPLE_SIZE);
-  //Serial.println(cm);
+  Serial.println(cm);
   int countLedsOn=min(cm/INTERVAL,6);
-  Serial.println(countLedsOn);
+  //Serial.println(countLedsOn);
   esp.turnOnTheLeds(countLedsOn);
 }
