@@ -5,7 +5,8 @@
 #include "constants.h"
 
 Esp32 esp;
-void setup() {
+void setup()
+{
   Serial.begin(TRANSMISSION_SPEED);
   esp.initializeLeds();
   esp.intilizeLcd();
@@ -14,10 +15,12 @@ void setup() {
   Serial.println(esp.getIpAdress());
 }
 
-void loop() {
+void loop()
+{
   delay(1000);
-  ClientHandler *clientList[CLIENTS_ACTUATORS_COUNT] = { new ClientHandlerLeds(REQUEST_CLIENT_HANDLER_LEDS), new ClientHandlerLcd(REQUEST_CLIENT_HANDLER_LCD) };
-  for (int i = 0; i < CLIENTS_ACTUATORS_COUNT; i++) {
+  ClientHandler *clientList[CLIENTS_ACTUATORS_COUNT] = {new ClientHandlerLeds(REQUEST_CLIENT_HANDLER_LEDS), new ClientHandlerLcd(REQUEST_CLIENT_HANDLER_LCD)};
+  for (int i = 0; i < CLIENTS_ACTUATORS_COUNT; i++)
+  {
     ClientHandler *clientHdl = clientList[i];
     clientHdl->connectoToTheServer(SERVER_ADDRESS, SERVER_PORT);
     clientHdl->sendRequestToTheServer();
