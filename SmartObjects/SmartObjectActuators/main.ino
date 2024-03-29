@@ -10,7 +10,7 @@ void setup()
   Serial.begin(TRANSMISSION_SPEED);
   esp.initializeLeds();
   esp.intilizeLcd();
-  esp.connectToInternet(WIFI_SSID, WIFI_PASS);
+  esp.connectToInternet(WIFI_SSID, WIFI_PASS);// change the wifiSsid and wifi_pass
   Serial.print("\n My IP address: ");
   Serial.println(esp.getIpAdress());
 }
@@ -22,7 +22,7 @@ void loop()
   for (int i = 0; i < CLIENTS_ACTUATORS_COUNT; i++)
   {
     ClientHandler *clientHdl = clientList[i];
-    clientHdl->connectoToTheServer(SERVER_ADDRESS, SERVER_PORT);
+    clientHdl->connectoToTheServer(SERVER_ADDRESS, SERVER_PORT); // change the serverAdress and serverPort
     clientHdl->sendRequestToTheServer();
     clientHdl->getResponseFromServer(esp);
     clientHdl->closeConnectionFromTheServer();
