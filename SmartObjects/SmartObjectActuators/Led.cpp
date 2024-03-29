@@ -1,15 +1,29 @@
-#include"Led.h"
-Led::Led(int ledPin){
-  this->ledPin=ledPin;
+#include "Led.h"
+Led::Led(int ledPin)
+{
+  this->ledPin = ledPin;
+  previousMillis = 0;
   pinMode(ledPin, OUTPUT);
 }
-Led::Led(){
+Led::Led()
+{
 }
-void Led::turnOn(){
-    digitalWrite(ledPin,HIGH);
+void Led::turnOff()
+{
+  digitalWrite(ledPin, LOW);
 }
-void Led::turnOff(){
-    digitalWrite(ledPin,LOW);
+void Led::turnOn()
+{
+  digitalWrite(ledPin, HIGH);
 }
-Led::~Led(){
+int Led::getPreviousMillis()
+{
+  return previousMillis;
+}
+void Led::setPreviosMillis(int millis)
+{
+  previousMillis = millis;
+}
+Led::~Led()
+{
 }
